@@ -8,6 +8,7 @@ using Barcoder.Renderers;
 /// <summary>
 /// Use / dotnet run "TEST" / to generate a Code 39 Extended barcode for the string "TEST" (output PNG).
 /// Use / dotnet run "TEST" -svg / to generate a Code 39 Extended barcode for the string "TEST" (output SVG).
+/// Output is done in the "output" directory.
 /// Code using the Barcoder library: https://github.com/huysentruitw/barcoder
 /// </summary>
 class Program
@@ -43,9 +44,10 @@ class Program
         {
             var svgOptions = new SvgRendererOptions
             { 
-                // This property is not available in this version of the library but it present on barcoder 3.1.0 (not still available on NuGet) but not on 3.0.0
+                // The property 'BarHeightFor1DBarcode' is not available in this version of the library but it present on barcoder 3.1.0 (not still available on NuGet) but not on 3.0.0
                 // https://github.com/huysentruitw/barcoder/tags
                 // BarHeightFor1DBarcode = 100,
+                // 'IncludeEanContentAsText' does not seem to work in this version of the library
                 IncludeEanContentAsText = true 
             };
             renderer = new SvgRenderer(svgOptions);
@@ -55,8 +57,10 @@ class Program
             var imageOptions = new ImageRendererOptions 
             {
                 ImageFormat = ImageFormat.Png, 
-                BarHeightFor1DBarcode = 100,
-                IncludeEanContentAsText = true
+                // Default value preserved but placed here to demonstrate the possibility of changing it
+                BarHeightFor1DBarcode = 50,
+                // 'IncludeEanContentAsText' does not seem to work in this version of the library
+                // IncludeEanContentAsText = true
 
             };
             renderer = new ImageRenderer(imageOptions);
