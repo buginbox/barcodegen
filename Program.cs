@@ -43,7 +43,8 @@ class Program
         {
             var svgOptions = new SvgRendererOptions
             { 
-                // This property is not available in this version of the library but it present on github develop branch (but not master apparently)
+                // This property is not available in this version of the library but it present on barcoder 3.1.0 (not still available on NuGet) but not on 3.0.0
+                // https://github.com/huysentruitw/barcoder/tags
                 // BarHeightFor1DBarcode = 100,
                 IncludeEanContentAsText = true 
             };
