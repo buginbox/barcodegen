@@ -43,7 +43,7 @@ class Program
         {
             var svgOptions = new SvgRendererOptions
             { 
-                // This property is not available in this version of the library but it present on github main branch
+                // This property is not available in this version of the library but it present on github develop branch (but not master apparently)
                 // BarHeightFor1DBarcode = 100,
                 IncludeEanContentAsText = true 
             };
